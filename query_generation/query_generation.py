@@ -5,6 +5,7 @@ from more_itertools import last
 import pandas as pd
 import numpy as np
 import random
+import uuid
 
 app = Flask(__name__)
 global user_id
@@ -28,10 +29,8 @@ def generate_id():
     return last_id + 1
 
 def save_results(r1,r2,r3,ids):
-    path_name = "./query_gen_results/query_gen_results.csv"
-    global user_id
-    if user_id == None:
-         user_id = generate_id()
+    user_id = str(uuid.uuid4())
+    path_name = "./query_gen_results/" + user_id + ".csv"
     results = [[user_id,ids[0]+1,r1],[user_id,ids[1]+1,r2],[user_id,ids[2]+1,r3]]
     with open(path_name, 'a', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
@@ -76,6 +75,3 @@ def query_gen():
             save_results(result1,result2,result3,ids)
             query_1, query_2, query_3, ids = get_new_paras()    
     return render_template("query_gen.html",query_1=query_1,query_2=query_2,query_3=query_3)
-
-
-# NEED TO MAKE MAKE IDS, TEXT AND QUERY VARIABLES GLOBAL?

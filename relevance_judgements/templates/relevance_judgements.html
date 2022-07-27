@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://designer.igniteui.com/css/themes/infragistics/infragistics.theme.css">
+		<link rel="stylesheet" href="https://designer.igniteui.com/css/structure/infragistics.css">
+		<link rel="stylesheet" href="https://designer.igniteui.com/packages/bootstrap/bootstrap.min.css">
+		<!--
+			Update the Ignite UI script references to your licensed copies before deploying.
+			Ignite UI License: https://www.infragistics.com/legal/license/ultimate/
+		-->
+		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js"></script>
+		<script src="https://designer.igniteui.com/js/infragistics.core.js"></script>
+		<script src="https://designer.igniteui.com/js/infragistics.lob.js"></script>
+		<!-- You may remove the datasources.js script if you are not using Designer sample data. -->
+		<script src="https://designer.igniteui.com/js/datasources.js"></script>
+		<script id="code">
+			$(document).ready(function () {
+
+			});
+		</script>
+		
+		<style>
+/* Split the screen in half */
+.split {
+  height: calc(100% - 30px);
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: #0;
+  overflow: auto;
+  height: calc(100% - 30px)
+  box-sizing: border-box;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: #0;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+		</style>
+	</head>
+	<body>
+		<div class="split left">
+            <p> {% autoescape false %} {{email}} {%endautoescape%} </p>
+        </div>
+        
+        <div class="split right">
+          <div class="centered">
+            <h1 id="heading1">Relevance Judgements</h1>
+            <p>Please read both the query below and the email to the right hand side then decide if the email is relevant to the query</p>
+            <br>
+            <p>Query: {{ query }} </p>
+            <br>
+            <form method="POST">
+            <input type="radio" name="relevance" id="option1" value="relevant" required> Relevant </input>
+		    <input type="radio" name="relevance" id="option2" value="not_relevant" required> Not relevant </input>
+		    <br><br>
+		    <input type="submit" value = "Submit" name="done">
+            </form>
+
+          </div>
+        </div>
+			
+</body>
+</html>

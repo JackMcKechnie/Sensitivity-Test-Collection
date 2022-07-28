@@ -213,5 +213,5 @@ def query_gen():
             save_results(result1, result2, result3, result4, result5, result6, result7, result8, result9, result10, result11, result12, result13,
                          result14, result15, result16, result17, result18, result19, result20, result21, result22, result23, result24, result25, ids, attention1, attention2)
             query_1, query_2, query_3, query_4, query_5, query_6, query_7, query_8, query_9, query_10, query_11, query_12, query_13, query_14, query_15, query_16, query_17, query_18, query_19, query_20, query_21, query_22, query_23, query_24, query_25, ids = get_new_paras()
-            return redirect("http://www.google.com")
+            return redirect(https://app.prolific.co/submissions/complete?cc=CSP88M3M")
     return render_template("query_gen.html", query_1=query_1, query_2=query_2, query_3=query_3, query_4=query_4, query_5=query_5, query_6=query_6, query_7=query_7, query_8=query_8, query_9=query_9, query_10=query_10, query_11=query_11, query_12=query_12, query_13=query_13, query_14=query_14, query_15=query_15, query_16=query_16, query_17=query_17, query_18=query_18, query_19=query_19, query_20=query_20, query_21=query_21, query_22=query_22, query_23=query_23, query_24=query_24, query_25=query_25)

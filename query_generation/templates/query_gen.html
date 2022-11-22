@@ -1,177 +1,85 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="https://designer.igniteui.com/css/themes/infragistics/infragistics.theme.css">
-		<link rel="stylesheet" href="https://designer.igniteui.com/css/structure/infragistics.css">
-		<link rel="stylesheet" href="https://designer.igniteui.com/packages/bootstrap/bootstrap.min.css">
-		<!--
-			Update the Ignite UI script references to your licensed copies before deploying.
-			Ignite UI License: https://www.infragistics.com/legal/license/ultimate/
-		-->
-		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-		<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js"></script>
-		<script src="https://designer.igniteui.com/js/infragistics.core.js"></script>
-		<script src="https://designer.igniteui.com/js/infragistics.lob.js"></script>
-		<!-- You may remove the datasources.js script if you are not using Designer sample data. -->
-		<script src="https://designer.igniteui.com/js/datasources.js"></script>
-		<script id="code">
-			$(document).ready(function () {
 
-			});
-		</script>
-	</head>
-	<body>
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+	<div class="row">
 		<h1 id="heading1">Query Generation</h1>
-		<p id="text1">Please read the following paragraphs and come up with a search term that you would use to find information relevant to that topic.&nbsp;</p>
-		
-		<hr>
-		<form method="POST">
-		<p id="text2">{{ query_1 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input for="Q1" id="input1" name="query_1" contenteditable="true" required/>
-		<hr>
-		
-		<p id="text2">{{ query_2 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1"name="query_2" contenteditable="true" required/>
-		<hr>
-		
-		<p id="text2">{{ query_3 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1" name="query_3" contenteditable="true" required/>
+		<p id="text1">Please read the following paragraphs and come up with a search term that you would use to find
+			information relevant to that topic.&nbsp;</p>
 		<hr>
 
-		<p id="text2">{{ query_4 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1" name="query_4" contenteditable="true" required/>
-		<hr>
+	</div>
+	<form method="POST">
+		<div class="row" style="background-color: #184c44;">
+			<p id="text2">{{ query_1 }}</p>
+			<span>
+				<input class="basic-slide" for="Q1" id="input1" name="query_1" contenteditable="true"
+					placeholder="Enter Query" required /> <label for="name">Query:</label>
+			</span>
+			<hr>
+		</div>
 
-		<p id="text2">{{ query_5 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1" name="query_5" contenteditable="true" required/>
-		<hr>
+		<div class="row" style="background-color: #377D6A;">
+			<p id="text2">{{ query_2 }}</p>
+			<span>
+				<input class="basic-slide" for="Q2" id="input2" name="query_2" contenteditable="true"
+					placeholder="Enter Query" required /> <label for="name">Query:</label>
+			</span>
+			<hr>
+		</div>
 
-		<p id="text2">{{ query_6 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input for="Q1" id="input1" name="query_6" contenteditable="true" required/>
-		<hr>
-		
-		<p id="text2">{{ query_7 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1"name="query_7" contenteditable="true" required/>
-		<hr>
-		
-		<p id="text2">{{ query_8 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1" name="query_8" contenteditable="true" required/>
-		<hr>
+		<div class="row" style="background-color: #80bc94;">
+			<p id="text2">{{ query_3 }}</p>
+			<span>
+				<input class="basic-slide" for="Q3" id="input3" name="query_3" contenteditable="true"
+					placeholder="Enter Query" required /> <label for="name">Query:</label>
+			</span>
+			<hr>
+		</div>
 
-		<p id="text2">{{ query_9 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1" name="query_9" contenteditable="true" required/>
-		<hr>
+		<div class="row" style="background-color: #184c44;">
+			<p id="text2">{{ query_4 }}</p>
+			<span>
+				<input class="basic-slide" for="Q4" id="input4" name="query_4" contenteditable="true"
+					placeholder="Enter Query" required /> <label for="name">Query:</label>
+			</span>
+			<hr>
+		</div>
 
-		<p id="text2">{{ query_10 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1" name="query_10" contenteditable="true" required/>
-		<hr>
+		<div class="row" style="background-color: #377D6A;">
+			<p id="text2">{{ query_5 }}</p>
+			<span>
+				<input class="basic-slide" for="Q5" id="input5" name="query_5" contenteditable="true"
+					placeholder="Enter Query" required /> <label for="name">Query:</label>
+			</span>
+			<hr>
+		</div>
 
-		<p id="text2">{{ attention_1 }}</p>
-		<p id="text5">The colour check that you are about to take part in is very simple, when asked for you favourite colour you must select "Green". This is an attention check. </p>
-		<input type="radio" name="attention_1" id="option1" value="red" required> Red </input><br>
-		<input type="radio" name="attention_1" id="option2" value="blue"> Blue </input><br>
-		<input type="radio" name="attention_1" id="option3" value="green"> Green </input><br>
-		<input type="radio" name="attention_1" id="option2" value="orange"> Orange </input><br>
-		<input type="radio" name="attention_1" id="option3" value="brown"> Brown </input><br>
-		<hr>
+		<div class="row" style="background-color: #80bc94; text-align: left;">
+			<span>
+				<p id="text2">{{ attention_1 }}</p>
+				<p id="text5">The colour check that you are about to take part in is very simple, when asked for you
+					favourite
+					colour you must select "Green". This is an attention check. </p>
+				<input type="radio" name="attention_1" id="option1" value="red" required> Red </input><br>
+				<input type="radio" name="attention_1" id="option2" value="blue"> Blue </input><br>
+				<input type="radio" name="attention_1" id="option3" value="green"> Green </input><br>
+				<input type="radio" name="attention_1" id="option2" value="orange"> Orange </input><br>
+				<input type="radio" name="attention_1" id="option3" value="brown"> Brown </input><br>
+			</span>
+			<hr>
+		</div>
 
-		<p id="text2">{{ query_11 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input for="Q1" id="input1" name="query_11" contenteditable="true" required/>
-		<hr>
-		
-		<p id="text2">{{ query_12 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1"name="query_12" contenteditable="true" required/>
-		<hr>
-		
-		<p id="text2">{{ query_13 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1" name="query_13" contenteditable="true" required/>
-		<hr>
-
-		<p id="text2">{{ query_14 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1" name="query_14" contenteditable="true" required/>
-		<hr>
-
-		<p id="text2">{{ query_15 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1" name="query_15" contenteditable="true" required/>
-		<hr>
-
-		<p id="text2">{{ query_16 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input for="Q1" id="input1" name="query_16" contenteditable="true" required/>
-		<hr>
-		
-		<p id="text2">{{ query_17 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1"name="query_17" contenteditable="true" required/>
-		<hr>
-		
-		<p id="text2">{{ query_18 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1" name="query_18" contenteditable="true" required/>
-		<hr>
-
-		<p id="text2">{{ query_19 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1" name="query_19" contenteditable="true" required/>
-		<hr>
-
-		<p id="text2">{{ query_20 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1" name="query_20" contenteditable="true" required/>
-		<hr>
-
-		<p id="text2">{{ attention_2 }}</p>
-		<p id="text5">The colour check that you are about to take part in is very simple, when asked for you favourite colour you must select "Orange". This is an attention check. </p>
-		<input type="radio" name="attention_2" id="option1" value="red" required> Red </input><br>
-		<input type="radio" name="attention_2" id="option2" value="blue"> Blue </input><br>
-		<input type="radio" name="attention_2" id="option3" value="green"> Green </input><br>
-		<input type="radio" name="attention_2" id="option2" value="orange"> Orange </input><br>
-		<input type="radio" name="attention_2" id="option3" value="brown"> Brown </input><br>
-		<hr>
-
-		<p id="text2">{{ query_21 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input for="Q1" id="input1" name="query_21" contenteditable="true" required/>
-		<hr>
-		
-		<p id="text2">{{ query_22 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1"name="query_22" contenteditable="true" required/>
-		<hr>
-		
-		<p id="text2">{{ query_23 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1" name="query_23" contenteditable="true" required/>
-		<hr>
-
-		<p id="text2">{{ query_24 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1" name="query_24" contenteditable="true" required/>
-		<hr>
-
-		<p id="text2">{{ query_25 }}</p>
-		<p id="text5">Enter a search query:</p>
-		<input id="input1" name="query_25" contenteditable="true" required/>
-		<hr>
-
-        <input type="submit" value = "Submit and finish" name="done">
+		<div class="row" style="background-color: #b8e4ac;">
+			<span>
+				<input class="basic-slide" type="submit" value="Submit and finish" name="done"> <label for="name">Done?</label>
+			</span>
+		</div>
 	</form>
-	</body>
+</body>
+
 </html>

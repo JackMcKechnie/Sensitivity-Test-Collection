@@ -14,7 +14,7 @@
 
 	</div>
 	<form method="POST">
-		<div class="row" style="background-color: #184c44;">
+		<div class="row" style="background-color: #032429;">
 			<p id="text2">{{ query_1 }}</p>
 			<span>
 				<input class="basic-slide" for="Q1" id="input1" name="query_1" contenteditable="true"
@@ -23,7 +23,7 @@
 			<hr>
 		</div>
 
-		<div class="row" style="background-color: #377D6A;">
+		<div class="row" style="background-color: #032429;">
 			<p id="text2">{{ query_2 }}</p>
 			<span>
 				<input class="basic-slide" for="Q2" id="input2" name="query_2" contenteditable="true"
@@ -32,7 +32,7 @@
 			<hr>
 		</div>
 
-		<div class="row" style="background-color: #80bc94;">
+		<div class="row" style="background-color: #032429;">
 			<p id="text2">{{ query_3 }}</p>
 			<span>
 				<input class="basic-slide" for="Q3" id="input3" name="query_3" contenteditable="true"
@@ -41,7 +41,7 @@
 			<hr>
 		</div>
 
-		<div class="row" style="background-color: #184c44;">
+		<div class="row" style="background-color: #032429;">
 			<p id="text2">{{ query_4 }}</p>
 			<span>
 				<input class="basic-slide" for="Q4" id="input4" name="query_4" contenteditable="true"
@@ -50,7 +50,7 @@
 			<hr>
 		</div>
 
-		<div class="row" style="background-color: #377D6A;">
+		<div class="row" style="background-color: #032429;">
 			<p id="text2">{{ query_5 }}</p>
 			<span>
 				<input class="basic-slide" for="Q5" id="input5" name="query_5" contenteditable="true"
@@ -59,12 +59,11 @@
 			<hr>
 		</div>
 
-		<div class="row" style="background-color: #80bc94; text-align: left;">
+		<div class="row" style="background-color: #032429; text-align: left;">
 			<span>
-				<p id="text2">{{ attention_1 }}</p>
 				<p id="text5">The colour check that you are about to take part in is very simple, when asked for you
 					favourite
-					colour you must select "Green". This is an attention check. </p>
+					colour you must select "{{ random_attention }}". This is an attention check. </p>
 				<input type="radio" name="attention_1" id="option1" value="red" required> Red </input><br>
 				<input type="radio" name="attention_1" id="option2" value="blue"> Blue </input><br>
 				<input type="radio" name="attention_1" id="option3" value="green"> Green </input><br>
@@ -74,9 +73,10 @@
 			<hr>
 		</div>
 
-		<div class="row" style="background-color: #b8e4ac;">
+		<div class="row" style="background-color: #032429;">
 			<span>
-				<input class="basic-slide" type="submit" value="Submit and finish" name="done"> <label for="name">Done?</label>
+				<input type="submit" value="Do more queries" name="refresh_button">
+				<input type="submit" value="Finshed" name="redirect_button">
 			</span>
 		</div>
 	</form>

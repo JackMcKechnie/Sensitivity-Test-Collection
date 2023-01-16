@@ -134,9 +134,9 @@ def extract_text_from_pdf(pdf_path):
 
 @app.route('/')
 def info_sheet():
-    out_text = extract_text_from_pdf("sas_enron_information_sheet.pdf")
-    out_text = out_text.replace('\n', '<br>')
-
+    #out_text = extract_text_from_pdf("sas_enron_information_sheet.pdf")
+    #out_text = out_text.replace('\n', '<br>')
+    out_text = ""
     return render_template('info_sheet.html', text=out_text)
 
 @app.route('/redirect')
@@ -146,11 +146,15 @@ def redirect_page():
 @app.route('/next', methods=['GET', 'POST'])
 def next_page():
     if request.method == 'POST':
+        print("HERE")
         checkbox_state = request.form.get('checkbox')
-        with open("./consent_checks/consent_confirmation.csv", 'a', encoding='UTF8', newline='') as f:
+        path_name = "./consent_checks/" + user_id + ".csv"
+
+        with open(path_name, 'a', encoding='UTF8', newline='') as f:
             writer = csv.writer(f)
             time_signed = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
             writer.writerows([[user_id,time_signed]])
+            print([user_id,time_signed])
         return redirect("/form")
     return render_template('consent_form.html')
 

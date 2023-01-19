@@ -15,6 +15,8 @@ user_id = str(uuid.uuid4())
 chosen_colour = None
 offset = 0
 
+global prolific_id
+
 def get_paragraphs():
     global offset 
     paras = pd.read_csv("topic_paragraphs.csv", encoding="utf-8")
@@ -36,13 +38,15 @@ def generate_id():
 
 def save_results(r1, r2, r3, r4, r5, ids, attention1):
     global user_id
+    global prolific_id
     path_name = "./query_gen_results/" + user_id + ".csv"
     results = [[user_id, ids[0]+1, r1],
                [user_id, ids[1]+1, r2],
                [user_id, ids[2]+1, r3],
                [user_id, ids[3]+1, r4],
                [user_id, ids[4]+1, r5],
-               [user_id, "attention1", attention1]]
+               [user_id, "attention1", attention1],
+               ["prolific_id", prolific_id]]
 
     with open(path_name, 'a', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
@@ -132,21 +136,24 @@ def extract_text_from_pdf(pdf_path):
         text = text.getvalue()
     return text
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def info_sheet():
     #out_text = extract_text_from_pdf("sas_enron_information_sheet.pdf")
     #out_text = out_text.replace('\n', '<br>')
     out_text = ""
+    if request.method == 'POST':
+        input_text = request.form['input_box']
     return render_template('info_sheet.html', text=out_text)
 
-@app.route('/redirect')
+@app.route('/redirect', methods=['GET'])
 def redirect_page():
+    global prolific_id
+    prolific_id = request.args.get('input_box')
     return redirect('/next')
 
 @app.route('/next', methods=['GET', 'POST'])
 def next_page():
     if request.method == 'POST':
-        print("HERE")
         checkbox_state = request.form.get('checkbox')
         path_name = "./consent_checks/" + user_id + ".csv"
 
